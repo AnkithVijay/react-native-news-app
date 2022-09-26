@@ -1,19 +1,11 @@
-import React, { useContext } from "react";
-import { StatusBar, StyleSheet, View } from "react-native";
-import Context, { NewsContext } from "./API/Context";
-import InshortTabs from "./components/InshortTabs";
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import Card from './components/card'
 
-function App() {
-  const { darkTheme } = useContext(NewsContext);
-
+export default function App() {
   return (
-    <View
-      style={{
-        ...styles.container,
-        backgroundColor: darkTheme ? "#282C35" : "white",
-      }}
-    >
-      <InshortTabs />
+    <View style={styles.container}>
+      <Card style={styles.card}/>
     </View>
   );
 }
@@ -21,14 +13,9 @@ function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight,
+    backgroundColor: '#fff',
+  },
+  card: {
+    flex: 1,
   },
 });
-
-export default () => {
-  return (
-    <Context>
-      <App />
-    </Context>
-  );
-};
